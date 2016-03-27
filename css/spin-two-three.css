@@ -1,0 +1,65 @@
+/* mini reset */
+
+.spin-two-three img {
+	margin: 0;
+	display: block;
+}
+
+/* shows the spin-two-three main element when the scripts runs */
+
+.spin-two-three.started {
+	visibility: visible;
+}
+
+/* vertical */
+
+.spin-two-three {
+	overflow: hidden;
+	visibility: hidden;
+}
+
+	.wheel {
+		width: 100%;
+		position: relative;
+		overflow: hidden;
+		display: block; /* to stack wheels verticaly */
+	}
+
+		.slices {
+			font-size: 0;
+			white-space: nowrap; /* stacks the inner elements horizontally */
+			position: relative;
+			top: 0;
+			left: 0;
+		}
+
+			.slice {
+				font-size: 16px;
+				font-size: 1rem;
+				white-space: normal;
+				display: inline-block;
+				vertical-align: top;
+				position: relative;
+        overflow: hidden;
+			}
+
+/* horizontal */
+
+.spin-two-three.horizontal {
+	font-size: 0;
+	white-space: nowrap;
+}
+
+	.horizontal .wheel {
+		font-size: 16px;
+		font-size: 1rem;
+		display: inline-block;
+	}
+
+		.horizontal .slices {
+			white-space: normal;
+		}
+
+			.horizontal .slice {
+
+			}
