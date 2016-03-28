@@ -1,7 +1,9 @@
 var $div, $slices, $spinTwoThree, $wheel, spinTwoThree, $triggerSpinBtn, $container, $slotContainer, $slotMusic,
-    $bleepSound, $coin1Sound, $coin2Sound, $coin3Sound, $coin4Sound;
+    $bleepSound, $coin1Sound, $coin2Sound, $coin3Sound, $coin4Sound, $lightContainer, lightInterval, $lights;
 
 function onSpinStart(e) {
+
+    startLightFlash();
 
     console.log('Spin started',e);
 
@@ -31,6 +33,11 @@ function onSpinStart(e) {
 }
 
 function onSpinComplete(e) {
+
+    stopLightFlash();
+
+    finishLightFlash();
+
     console.log('Spin complete',e);
 
     $slotMusic[0].pause();
@@ -69,6 +76,80 @@ function loadData(){
 
 }
 
+function startLightFlash(){
+
+    console.log('Light flash started');
+
+    var currentIndex = 0;
+
+    activateLight(currentIndex);
+
+    clearInterval(lightInterval);
+
+    lightInterval = setInterval(function(){
+        deactivateLights();
+        activateLight(currentIndex);
+        currentIndex++;
+
+        if(currentIndex > 2){
+            currentIndex = 0;
+        }
+    },100);
+
+}
+
+function finishLightFlash(){
+
+    var currentIndex = 0;
+
+    activateLight(0);
+    activateLight(1);
+    activateLight(2);
+
+    clearInterval(lightInterval);
+
+    lightInterval = setInterval(function(){
+        deactivateLights();
+
+        switch(currentIndex){
+            case 0:
+                activateLight(0);
+                activateLight(1);
+                activateLight(2);
+                break;
+            case 1:
+                deactivateLights();
+                break;
+            case 2:
+                activateLight(0);
+                activateLight(1);
+                activateLight(2);
+                break;
+            case 3:
+                deactivateLights();
+                break;
+        }
+
+        currentIndex++;
+    },100);
+}
+
+function activateLight(index){
+    $lights.eq(index).addClass('on');
+}
+
+function deactivateLights(){
+    $lights.removeClass('on');
+}
+
+function stopLightFlash(){
+
+    console.log('Light flash stopped');
+
+    clearInterval(lightInterval);
+    deactivateLights();
+}
+
 function renderGames(){
     var count = 0;
     $.each(games,function(key,value){
@@ -94,6 +175,9 @@ $(document).ready(function(){
 
     $container = $('.container');
     $slotContainer = $('.slot-container');
+    $lightContainer = $('.light-container');
+    $lights = $lightContainer.find('.light');
+
     $triggerSpinBtn = $('#trigger-spin-btn');
     $slotMusic = $('#slot-music');
 
