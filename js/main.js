@@ -1,14 +1,16 @@
-var $div, $slices, $spinTwoThree, $wheel, spinTwoThree, $triggerSpinBtn;
+var $div, $slices, $spinTwoThree, $wheel, spinTwoThree, $triggerSpinBtn, $container, $slotContainer;
 
 function onSpinStart(e) {
 
     console.log('Spin started',e);
 
+    $slotContainer.addClass('spinning');
     $div.html = $('');
 }
 
 function onSpinComplete(e) {
     console.log('Spin complete',e);
+    $slotContainer.removeClass('spinning');
     //$div.html = e.slots[0].getSlice(0).getAttribute("data-name");
 }
 
@@ -56,8 +58,14 @@ function onTriggerSpin(e){
 
 }
 
+function onResize(e){
+    $container.height($(window).height());
+}
+
 $(document).ready(function(){
 
+    $container = $('.container');
+    $slotContainer = $('.slot-container');
     $triggerSpinBtn = $('#trigger-spin-btn');
 
     //console.log($triggerSpinBtn)
@@ -68,6 +76,8 @@ $(document).ready(function(){
     $slices = $spinTwoThree.find('.wheel > .slices');
     $slices.html('');
 
+    onResize();
+
     $('body').append($div);
 
     spinTwoThree = new SpinTwoThree($("#spin-two-three")[0]);
@@ -75,6 +85,7 @@ $(document).ready(function(){
     spinTwoThree.setCallbackComplete(onSpinComplete);
 
     $triggerSpinBtn.bind('click',onTriggerSpin);
+    $(window).on('resize',onResize);
 
     loadData();
 
