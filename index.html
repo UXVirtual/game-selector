@@ -13,7 +13,6 @@
         <link rel="stylesheet" href="css/normalize.css">
 
         <link rel="stylesheet" href="css/spin-two-three.css">
-        <link rel="stylesheet" href="css/eye-candy.css">
 
         <link rel="stylesheet" href="css/main.css">
         <script src="js/vendor/modernizr-2.8.3.min.js"></script>
@@ -24,19 +23,93 @@
         <![endif]-->
 
         <div class="controls">
-            <a href="#" class="spin-two-three-spin spin-all">SPIN</a> -
+            <button id="trigger-spin-btn">SPIN</button>
         </div>
         <br>
-        <div class="spin-two-three" id="spin-two-three">
+        <div class="spin-two-three horizontal" id="spin-two-three">
             <div class="wheel">
                 <div class="slices">
-                    <div class="slice" data-name="Hipster"><img src="img/hipster.png"></div>
-                    <div class="slice" data-name="Zombie"><img src="img/zombie.png"></div>
-                    <div class="slice" data-name="Skate Girl"><img src="img/skate-girl.png"></div>
-                    <div class="slice" data-name="Geek"><img src="img/geek.png"></div>
+
                 </div>
             </div>
         </div>
+
+        <script>
+            var games = [
+                {
+                    id: 17460,
+                    title: "Mass Effect",
+                    header: "http://cdn.akamai.steamstatic.com/steam/apps/17460/header.jpg?t=1447351599",
+                    url: "http://store.steampowered.com/app/17460/"
+                },
+                {
+                    id: 901242,
+                    title: "Mass Effect 2 Digital Deluxe Edition",
+                    header: "http://cdn.akamai.steamstatic.com/steam/apps/901242/header.jpg?t=1447352802",
+                    url: "http://store.steampowered.com/app/901242/"
+                },
+                {
+                    id: 17410,
+                    title: "Mirror's Edge",
+                    header: "http://cdn.akamai.steamstatic.com/steam/apps/17410/header.jpg?t=1447351617",
+                    url: "http://store.steampowered.com/app/17410/"
+                },
+                {
+                    id: 72850,
+                    title: "The Elder Scrolls V: Skyrim",
+                    header: "http://cdn.akamai.steamstatic.com/steam/apps/72850/header.jpg?t=1447354493",
+                    url: "http://store.steampowered.com/app/72850/"
+                },
+                {
+                    id: 377160,
+                    title: "Fallout 4",
+                    header: "http://cdn.akamai.steamstatic.com/steam/apps/377160/header.jpg?t=1458619195",
+                    url: "http://store.steampowered.com/app/377160/"
+                },
+                {
+                    id: 22370,
+                    title: "Fallout 3: Game of the Year Edition",
+                    header: "http://cdn.akamai.steamstatic.com/steam/apps/22370/header.jpg?t=1449019604",
+                    url: "http://store.steampowered.com/app/22370/"
+                },
+                {
+                    id: 2028016,
+                    title: "Fallout: New Vegas Ultimate Edition",
+                    header: "http://cdn.akamai.steamstatic.com/steam/apps/2028016/header.jpg?t=1447355314",
+                    url: "http://store.steampowered.com/app/2028016/"
+                },
+                {
+                    id: 292120,
+                    title: "FINAL FANTASY&reg; XIII",
+                    header: "http://cdn.akamai.steamstatic.com/steam/apps/292120/header.jpg?t=1447361145",
+                    url: "http://store.steampowered.com/app/292120/"
+                },
+                {
+                    id: 292140,
+                    title: "FINAL FANTASY&reg; XIII-2",
+                    header: "http://cdn.akamai.steamstatic.com/steam/apps/292140/header.jpg?t=1447361146",
+                    url: "http://store.steampowered.com/app/292140/"
+                },
+                {
+                    id: 345350,
+                    title: "LIGHTNING RETURNS™: FINAL FANTASY® XIII",
+                    header: "http://cdn.akamai.steamstatic.com/steam/apps/345350/header.jpg?t=1457080588",
+                    url: "http://store.steampowered.com/app/345350/"
+                },
+                {
+                    id: 8500,
+                    title: "EVE Online",
+                    header: "http://cdn.akamai.steamstatic.com/steam/apps/8500/header.jpg?t=1458745550",
+                    url: "http://store.steampowered.com/app/8500/"
+                },
+                {
+                    id: 368500,
+                    title: "Assassin's Creed&reg; Syndicate",
+                    header: "http://cdn.akamai.steamstatic.com/steam/apps/368500/header.jpg?t=1453823620",
+                    url: "http://store.steampowered.com/app/368500/"
+                }
+            ];
+        </script>
 
         <script src="js/vendor/CSSPlugin.min.js"></script>
         <script src="js/vendor/TweenLite.min.js"></script>

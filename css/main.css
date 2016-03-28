@@ -95,7 +95,32 @@ textarea {
    Author's custom styles
    ========================================================================== */
 
+body {
+    font-family: sans-serif;
+    text-align: center;
+}
 
+.spin-two-three {
+    width: 460px;
+    height: 215px;
+    margin: 0 auto;
+}
+
+.wheel {
+    width: 460px;
+}
+
+.slices {
+}
+
+.slice {
+}
+
+.slice {
+    width: 460px;
+    height: 215px;
+    display: block;
+}
 
 
 
