@@ -1,8 +1,30 @@
-var $div, $slices, $spinTwoThree, $wheel, spinTwoThree, $triggerSpinBtn, $container, $slotContainer;
+var $div, $slices, $spinTwoThree, $wheel, spinTwoThree, $triggerSpinBtn, $container, $slotContainer, $slotMusic,
+    $bleepSound, $coin1Sound, $coin2Sound, $coin3Sound, $coin4Sound;
 
 function onSpinStart(e) {
 
     console.log('Spin started',e);
+
+    $slotMusic[0].play();
+
+    var rnd = Math.floor((Math.random() * 4) + 1);
+
+    switch(rnd){
+        case 1:
+            $coin1Sound[0].play();
+            break;
+        case 2:
+            $coin2Sound[0].play();
+            break;
+        case 3:
+            $coin3Sound[0].play();
+            break;
+        case 4:
+            $coin4Sound[0].play();
+            break;
+    }
+
+
 
     $slotContainer.addClass('spinning');
     $div.html = $('');
@@ -10,6 +32,12 @@ function onSpinStart(e) {
 
 function onSpinComplete(e) {
     console.log('Spin complete',e);
+
+    $slotMusic[0].pause();
+    $slotMusic[0].currentTime = 0;
+
+    $bleepSound[0].play();
+
     $slotContainer.removeClass('spinning');
     //$div.html = e.slots[0].getSlice(0).getAttribute("data-name");
 }
@@ -67,6 +95,13 @@ $(document).ready(function(){
     $container = $('.container');
     $slotContainer = $('.slot-container');
     $triggerSpinBtn = $('#trigger-spin-btn');
+    $slotMusic = $('#slot-music');
+
+    $bleepSound = $('#bleep-sound');
+    $coin1Sound = $('#coin1-sound');
+    $coin2Sound = $('#coin2-sound');
+    $coin3Sound = $('#coin3-sound');
+    $coin4Sound = $('#coin4-sound');
 
     //console.log($triggerSpinBtn)
 
