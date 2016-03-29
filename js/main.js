@@ -151,8 +151,13 @@ function stopLightFlash(){
 function renderGames(){
     var count = 0;
     $.each(games,function(key,value){
-        $slices.append($('<div class="slice" data-name="'+value.id+'"><img src="'+value.header+'" /></div>'));
+        $slices.append($('<div class="slice" data-name="'+value.id+'"><a href="'+value.url+'"><img src="'+value.header+'" /></a></div>'));
+
         count++;
+
+        /*if(count === 5){
+            return false;
+        }*/
     });
     $wheel.css('height',count*215);
 }
@@ -168,6 +173,10 @@ function onTriggerSpin(e){
     //spinTwoThree.shuffle();
     spinTwoThree.spin();
 
+}
+
+function onSlotOverlayClick(e){
+    e.preventDefault();
 }
 
 function onResize(e){
