@@ -1,5 +1,5 @@
 var $div, $slices, $spinTwoThree, $wheel, spinTwoThree, $triggerSpinBtn, $container, $slotContainer, $slotMusic,
-    $bleepSound, $coin1Sound, $coin2Sound, $coin3Sound, $coin4Sound, $lightContainer, lightInterval, $lights;
+    $bleepSound, $coin1Sound, $coin2Sound, $coin3Sound, $coin4Sound, $lightContainer, lightInterval, $lights, $bgMusic;
 
 function onSpinStart(e) {
 
@@ -25,8 +25,6 @@ function onSpinStart(e) {
             $coin4Sound[0].play();
             break;
     }
-
-
 
     $slotContainer.addClass('spinning');
     $div.html = $('');
@@ -162,6 +160,11 @@ function renderGames(){
 function onTriggerSpin(e){
     e.preventDefault();
     loadData();
+
+    if($bgMusic[0].paused){
+        $bgMusic[0].play();
+    }
+
     //spinTwoThree.shuffle();
     spinTwoThree.spin();
 
@@ -178,8 +181,10 @@ $(document).ready(function(){
     $lightContainer = $('.light-container');
     $lights = $lightContainer.find('.light');
 
+
     $triggerSpinBtn = $('#trigger-spin-btn');
     $slotMusic = $('#slot-music');
+    $bgMusic = $('#bg-music');
 
     $bleepSound = $('#bleep-sound');
     $coin1Sound = $('#coin1-sound');
