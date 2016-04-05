@@ -22,6 +22,7 @@ same format as the existing examples. Each game requires the following propertie
     
 *   `url` - the URL to the game on the Steam store. e.g. http://store.steampowered.com/app/17460/.
 
+To change the length of time the wheel will spin for, edit `spinLength` in `index.html`.
 
 ## Attribution
 
