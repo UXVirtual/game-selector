@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="initial-scale=1.0">
+	<title>Spin Two Three - Boilerplate</title>
+	<link rel="stylesheet" href="css/spin-two-three.css">
+</head>
+<body>
+	<div class="">
+		<div class="controls">
+			<a href="#" class="spin-two-three-prev spin-all">&lt; PREV</a> -
+			<a href="#" class="spin-two-three-spin spin-all">SPIN</a> -
+			<a href="#" class="spin-two-three-next spin-all">NEXT &gt;</a>
+		</div>
+		<br>
+		<div class="spin-two-three" id="spin-two-three">
+			<div class="wheel">
+				<div class="slices">
+					<div class="slice"><!-- slice content here --></div>
+					<div class="slice"><!-- slice content here --></div>
+					<div class="slice"><!-- slice content here --></div>
+					<div class="slice"><!-- slice content here --></div>
+				</div>
+			</div>
+			<div class="wheel">
+				<div class="slices">
+					<div class="slice"><!-- slice content here --></div>
+					<div class="slice"><!-- slice content here --></div>
+					<div class="slice"><!-- slice content here --></div>
+					<div class="slice"><!-- slice content here --></div>
+				</div>
+			</div>
+			<div class="wheel">
+				<div class="slices">
+					<div class="slice"><!-- slice content here --></div>
+					<div class="slice"><!-- slice content here --></div>
+					<div class="slice"><!-- slice content here --></div>
+					<div class="slice"><!-- slice content here --></div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.9.5/plugins/CSSPlugin.min.js"></script>
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.9.5/TweenLite.min.js"></script>
+	<script src="js/polyfills.js"></script>
+	<script src="js/spin-two-three.js"></script>
+
+	<script>
+		var spinTwoThree = new SpinTwoThree(document.querySelector("#spin-two-three"));
+		spinA.addEventListener("spinstart", onSpin);
+		spinA.addEventListener("spinstartsingle", onSpin);
+		spinA.addEventListener("spincompletesingle", onSpin);
+		spinA.addEventListener("spincomplete", onSpin);
+
+		function onSpin(e) {
+			console.log("e.type", e.type);
+			if (e.type == "spinstartsingle" || e.type == "spincompletesingle") {
+				console.log(e.slot, e.slot.getSlice(0).index);	
+			}
+			if (e.type == "spincomplete") {
+				console.log(e.slots);
+			}
+		}
+	</script>
+</body>
+</html>

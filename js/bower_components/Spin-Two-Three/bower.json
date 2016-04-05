@@ -1,0 +1,23 @@
+{
+  "name": "Spin-Two-Three",
+  "version": "1.1.0",
+  "homepage": "https://github.com/HAZARDU5/Spin-Two-Three",
+  "authors": [
+    "Marco Lago <marcolago@gmail.com>",
+    "Michael Andrew <michael@uxvirtual.com>"
+  ],
+  "description": "A Really Simple Absolutely Randomic Slot Machine Mini Library",
+  "main": "spin-two-three.js",
+  "moduleType": [],
+  "license": "None",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "examples",
+    "css"
+  ]
+}

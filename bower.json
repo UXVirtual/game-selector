@@ -1,0 +1,22 @@
+{
+  "name": "game-selector",
+  "homepage": "https://github.com/HAZARDU5/game-selector",
+  "authors": [
+    "Michael Andrew <michael@gladeye.co.nz>"
+  ],
+  "description": "A slot machine that will select a random Steam game.",
+  "main": "main.js",
+  "moduleType": [],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "Spin-Two-Three": "https://github.com/HAZARDU5/Spin-Two-Three.git#1.1.0"
+  }
+}

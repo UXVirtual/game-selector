@@ -1,0 +1,32 @@
+{
+  "name": "Spin-Two-Three",
+  "version": "1.1.0",
+  "homepage": "https://github.com/HAZARDU5/Spin-Two-Three",
+  "authors": [
+    "Marco Lago <marcolago@gmail.com>",
+    "Michael Andrew <michael@uxvirtual.com>"
+  ],
+  "description": "A Really Simple Absolutely Randomic Slot Machine Mini Library",
+  "main": "spin-two-three.js",
+  "moduleType": [],
+  "license": "None",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "examples",
+    "css"
+  ],
+  "_release": "1.1.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "1.1.0",
+    "commit": "4d982ed1c06ff027a4b532d5ed37c7c6f5d30729"
+  },
+  "_source": "https://github.com/HAZARDU5/Spin-Two-Three.git",
+  "_target": "1.1.0",
+  "_originalSource": "https://github.com/HAZARDU5/Spin-Two-Three.git"
+}

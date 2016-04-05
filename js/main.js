@@ -1,11 +1,13 @@
 var $div, $slices, $spinTwoThree, $wheel, spinTwoThree, $triggerSpinBtn, $container, $slotContainer, $slotMusic,
     $bleepSound, $coin1Sound, $coin2Sound, $coin3Sound, $coin4Sound, $lightContainer, lightInterval, $lights, $bgMusic;
 
+var gamesCount = 0;
+
 function onSpinStart(e) {
 
     startLightFlash();
 
-    console.log('Spin started',e);
+    //console.log('Spin started',e);
 
     $slotMusic[0].play();
 
@@ -76,7 +78,7 @@ function loadData(){
 
 function startLightFlash(){
 
-    console.log('Light flash started');
+    //console.log('Light flash started');
 
     var currentIndex = 0;
 
@@ -159,6 +161,9 @@ function renderGames(){
             return false;
         }*/
     });
+
+    gamesCount = count;
+
     $wheel.css('height',count*215);
 }
 
@@ -170,8 +175,20 @@ function onTriggerSpin(e){
         $bgMusic[0].play();
     }
 
-    //spinTwoThree.shuffle();
+    //if(spinTwoThree.isSpinning){
+    //    console.log('Already spinning!');
+    //}else{
+        //spinTwoThree.shuffle();
+
+    //}
+
+    //spinTwoThree.gotoSlice(gamesCount)
+
+    spinTwoThree.setSpeedOverride(spinLength);
+
     spinTwoThree.spin();
+
+
 
 }
 

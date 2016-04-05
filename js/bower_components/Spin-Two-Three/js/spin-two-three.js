@@ -34,6 +34,7 @@ function SpinTwoThree(element, classes) {
   var usePx = false;
   var transitionSpeedModifier = 0.8;
   var _override = false;
+  var _speedOverride = 0;
 
   var callbackStartSingle = undefined;
   var callbackStart = undefined;
@@ -204,14 +205,14 @@ function SpinTwoThree(element, classes) {
   }
 
   /*
-######## ##     ## ######## ##    ## ########  ######
-##       ##     ## ##       ###   ##    ##    ##    ##
-##       ##     ## ##       ####  ##    ##    ##
-######   ##     ## ######   ## ## ##    ##     ######
-##        ##   ##  ##       ##  ####    ##          ##
-##         ## ##   ##       ##   ###    ##    ##    ##
-########    ###    ######## ##    ##    ##     ######
-*/
+   ######## ##     ## ######## ##    ## ########  ######
+   ##       ##     ## ##       ###   ##    ##    ##    ##
+   ##       ##     ## ##       ####  ##    ##    ##
+   ######   ##     ## ######   ## ## ##    ##     ######
+   ##        ##   ##  ##       ##  ####    ##          ##
+   ##         ## ##   ##       ##   ###    ##    ##    ##
+   ########    ###    ######## ##    ##    ##     ######
+   */
 
   function dispatchEvent(t, ps) {
     // events
@@ -262,14 +263,14 @@ function SpinTwoThree(element, classes) {
   }
 
   /*
- ######  ##        #######  ########     #######  ########        ## 
-##    ## ##       ##     ##    ##       ##     ## ##     ##       ## 
-##       ##       ##     ##    ##       ##     ## ##     ##       ## 
- ######  ##       ##     ##    ##       ##     ## ########        ## 
-      ## ##       ##     ##    ##       ##     ## ##     ## ##    ## 
-##    ## ##       ##     ##    ##       ##     ## ##     ## ##    ## 
- ######  ########  #######     ##        #######  ########   ######  
-*/
+   ######  ##        #######  ########     #######  ########        ##
+   ##    ## ##       ##     ##    ##       ##     ## ##     ##       ##
+   ##       ##       ##     ##    ##       ##     ## ##     ##       ##
+   ######  ##       ##     ##    ##       ##     ## ########        ##
+   ## ##       ##     ##    ##       ##     ## ##     ## ##    ##
+   ##    ## ##       ##     ##    ##       ##     ## ##     ## ##    ##
+   ######  ########  #######     ##        #######  ########   ######
+   */
 
   function Slot(slices) {
     var slot = slices;
@@ -293,7 +294,7 @@ function SpinTwoThree(element, classes) {
     function _spin() {
       if (_isSpinning === false || _override === true) {
         _isSpinning = true;
-        maxSpeed = Math.floor((Math.random() * 50) + 50) * (usePx === true ? 1 : 0.35);
+        maxSpeed = (_speedOverride > 0) ? _speedOverride : Math.floor((Math.random() * 50) + 50) * (usePx === true ? 1 : 0.35);
         var doRoll = _rollSlot.bind(this);
         doRoll();
         dispatchEvent(EVENT_SPIN_START_SINGLE, {
@@ -487,13 +488,13 @@ function SpinTwoThree(element, classes) {
 
   /*
    ###    ##    ## #### ##     ##    ###    ######## ####  #######  ##    ## 
-  ## ##   ###   ##  ##  ###   ###   ## ##      ##     ##  ##     ## ###   ## 
- ##   ##  ####  ##  ##  #### ####  ##   ##     ##     ##  ##     ## ####  ## 
-##     ## ## ## ##  ##  ## ### ## ##     ##    ##     ##  ##     ## ## ## ## 
-######### ##  ####  ##  ##     ## #########    ##     ##  ##     ## ##  #### 
-##     ## ##   ###  ##  ##     ## ##     ##    ##     ##  ##     ## ##   ### 
-##     ## ##    ## #### ##     ## ##     ##    ##    ####  #######  ##    ## 
-*/
+   ## ##   ###   ##  ##  ###   ###   ## ##      ##     ##  ##     ## ###   ##
+   ##   ##  ####  ##  ##  #### ####  ##   ##     ##     ##  ##     ## ####  ##
+   ##     ## ## ## ##  ##  ## ### ## ##     ##    ##     ##  ##     ## ## ## ##
+   ######### ##  ####  ##  ##     ## #########    ##     ##  ##     ## ##  ####
+   ##     ## ##   ###  ##  ##     ## ##     ##    ##     ##  ##     ## ##   ###
+   ##     ## ##    ## #### ##     ## ##     ##    ##    ####  #######  ##    ##
+   */
 
   function animloop() {
     requestAnimFrame(animloop);
@@ -506,13 +507,13 @@ function SpinTwoThree(element, classes) {
 
   /*
    ###    ########  #### 
-  ## ##   ##     ##  ##  
- ##   ##  ##     ##  ##  
-##     ## ########   ##  
-######### ##         ##  
-##     ## ##         ##  
-##     ## ##        #### 
-*/
+   ## ##   ##     ##  ##
+   ##   ##  ##     ##  ##
+   ##     ## ########   ##
+   ######### ##         ##
+   ##     ## ##         ##
+   ##     ## ##        ####
+   */
 
   function _shuffle(slotIndex) {
     if (slotIndex !== undefined && slotIndex < slots.length) {
@@ -680,6 +681,10 @@ function SpinTwoThree(element, classes) {
     currentId = index;
   }
 
+  function _setSpeedOverride(value){
+    _speedOverride = value;
+  }
+
   // API
 
   return {
@@ -698,6 +703,7 @@ function SpinTwoThree(element, classes) {
     setCallbackComplete: _setCallbackComplete,
     usePixels: _usePixels,
     setSpinOverride: _setSpinOverride,
-    setIndex: _setIndex
+    setIndex: _setIndex,
+    setSpeedOverride: _setSpeedOverride
   };
 }
