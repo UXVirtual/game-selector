@@ -3,7 +3,7 @@ Game Selector
 
 A random game selector. Spin the wheel and pick a random game to play from your Steam library!
 
-[A demo is available](http://hazardu5.github.io/game-selector/index.html).
+[A demo is available](http://uxvirtual.github.io/game-selector/index.html).
 
 ## Instructions
 
